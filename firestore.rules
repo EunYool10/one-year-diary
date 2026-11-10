@@ -24,7 +24,7 @@ service cloud.firestore {
           && request.resource.data.createdAt == request.time
           && request.resource.data.unlockAt is timestamp
           && request.resource.data.unlockAt > request.time + duration.value(365, 'd')
-          && request.resource.data.unlockAt <= request.time + duration.value(366, 'd');
+          && request.resource.data.unlockAt <= request.time + duration.value(367, 'd');
         allow get: if isOwner(uid) && resource.data.unlockAt <= request.time;
         allow list, update, delete: if false;
       }
