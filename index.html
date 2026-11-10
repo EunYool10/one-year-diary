@@ -30,7 +30,7 @@ $('save').addEventListener('click',async()=>{
  if(!text){$('sentence').focus();return}
  const dayRef=doc(db,'users',currentUser.uid,'days',day);
  const sealedRef=doc(db,'users',currentUser.uid,'days',day,'sealed','letter');
- const unlockDate=new Date();unlockDate.setFullYear(unlockDate.getFullYear()+1);unlockDate.setDate(unlockDate.getDate()+1);
+ const unlockDate=new Date();unlockDate.setFullYear(unlockDate.getFullYear()+1);unlockDate.setMinutes(unlockDate.getMinutes()+5);
  try{
   const batch=writeBatch(db);
   batch.set(dayRef,{date:day,unlockAt:Timestamp.fromDate(unlockDate)});
